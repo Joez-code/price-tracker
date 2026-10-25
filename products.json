@@ -6,22 +6,13 @@
     "url": "https://www.1800petmeds.com/dog/food/product/purina-pro-plan-adult-toy-breed-chicken-rice-formula/prod66365.html",
     "currency": "USD",
     "target": 18.00,
-    "selector": ".add-price.primary-color .price-container span span span"
+    "selector": "#productDetail > div.container.pdp-container.three-column-layout > div > div.column-2.add-to-cart-column > div.column-2_1 > div.add-to-cart-html-container > div > div > div > div.row > div.col-12.d-none.d-sm-block.pricing-and-points > div > div.add-price.primary-color > div.price-container > span > span > span"
   },
   {
     "id": "jbhifi-sony-xm5",
     "name": "Sony WH-1000XM5 降噪耳机 黑色",
     "retailer": "JB Hi-Fi",
     "url": "https://jbhifi.com.au/products/sony-wh-1000xm5-premium-noise-cancelling-wireless-over-ear-headphones-black",
-    "currency": "AUD",
-    "target": null,
-    "selector": null
-  },
-  {
-    "id": "officeworks-mx-master-3s",
-    "name": "Logitech MX Master 3S 无线鼠标 石墨色",
-    "retailer": "Officeworks",
-    "url": "https://www.officeworks.com.au/shop/officeworks/p/logitech-mx-master-3s-wireless-mouse-graphite-logmxm3sbk",
     "currency": "AUD",
     "target": null,
     "selector": null

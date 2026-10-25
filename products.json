@@ -1,20 +1,38 @@
 [
   {
-    "id": "chewy-proplan-toy-5lb",
-    "name": "Purina Pro Plan 小型犬 鸡肉米饭 5lb",
-    "retailer": "Chewy",
-    "url": "https://www.chewy.com/purina-pro-plan-adult-toy-breed/dp/52400",
-    "currency": "USD",
-    "target": 18.00,
-    "selector": null
-  },
-  {
     "id": "petmeds-proplan-toy-5lb",
     "name": "Purina Pro Plan 小型犬 鸡肉米饭 5lb",
     "retailer": "1800PetMeds",
     "url": "https://www.1800petmeds.com/dog/food/product/purina-pro-plan-adult-toy-breed-chicken-rice-formula/prod66365.html",
     "currency": "USD",
     "target": 18.00,
+    "selector": ".add-price.primary-color .price-container span span span"
+  },
+  {
+    "id": "jbhifi-sony-xm5",
+    "name": "Sony WH-1000XM5 降噪耳机 黑色",
+    "retailer": "JB Hi-Fi",
+    "url": "https://jbhifi.com.au/products/sony-wh-1000xm5-premium-noise-cancelling-wireless-over-ear-headphones-black",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
+  },
+  {
+    "id": "officeworks-mx-master-3s",
+    "name": "Logitech MX Master 3S 无线鼠标 石墨色",
+    "retailer": "Officeworks",
+    "url": "https://www.officeworks.com.au/shop/officeworks/p/logitech-mx-master-3s-wireless-mouse-graphite-logmxm3sbk",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
+  },
+  {
+    "id": "goodguys-dyson-v10",
+    "name": "Dyson V10 无线吸尘器",
+    "retailer": "The Good Guys",
+    "url": "https://www.thegoodguys.com.au/dyson-v10-cordless-vacuum-496119-01",
+    "currency": "AUD",
+    "target": null,
     "selector": null
   }
 ]

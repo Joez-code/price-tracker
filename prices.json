@@ -1,0 +1,12 @@
+{
+  "series": {
+    "chewy-proplan-toy-5lb": [
+      { "ts": "2026-10-25", "price": 22.69 }
+    ],
+    "petmeds-proplan-toy-5lb": [
+      { "ts": "2026-10-25", "price": 20.68 }
+    ]
+  },
+  "status": {},
+  "updated": "2026-10-25T07:30:00+00:00"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "chewy-proplan-toy-5lb",
+    "name": "Purina Pro Plan 小型犬 鸡肉米饭 5lb",
+    "retailer": "Chewy",
+    "url": "https://www.chewy.com/purina-pro-plan-adult-toy-breed/dp/52400",
+    "currency": "USD",
+    "target": 18.00,
+    "selector": null
+  },
+  {
+    "id": "petmeds-proplan-toy-5lb",
+    "name": "Purina Pro Plan 小型犬 鸡肉米饭 5lb",
+    "retailer": "1800PetMeds",
+    "url": "https://www.1800petmeds.com/dog/food/product/purina-pro-plan-adult-toy-breed-chicken-rice-formula/prod66365.html",
+    "currency": "USD",
+    "target": 18.00,
+    "selector": null
+  }
+]

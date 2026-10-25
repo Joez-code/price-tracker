@@ -1,0 +1,47 @@
+name: 抓价
+
+on:
+  schedule:
+    # cron 用的是 UTC。21:42 UTC = 次日 08:42 悉尼夏令时(UTC+11)。
+    # 黑五期间改成每 4 小时：  - cron: "42 */4 * * *"
+    - cron: "42 21 * * *"
+  workflow_dispatch:        # 允许在 Actions 页面手动点一次
+
+permissions:
+  contents: write           # 脚本要把抓到的价格 commit 回仓库
+
+concurrency:
+  group: track-prices       # 防止手动触发和定时触发撞车
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: pip install requests beautifulsoup4
+
+      - name: 抓取价格
+        run: python scripts/fetch_prices.py
+
+      - name: 有变化就提交
+        run: |
+          git config user.name  "price-bot"
+          git config user.email "price-bot@users.noreply.github.com"
+          git add data/prices.json
+          if git diff --staged --quiet; then
+            echo "价格没变化，不提交。"
+          else
+            git commit -m "价格更新 $(TZ=Australia/Sydney date '+%Y-%m-%d %H:%M')"
+            # 定时任务和手动触发可能撞上，先 rebase 再推
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+            git push
+          fi

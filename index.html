@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>价格轨迹</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f6f7fa; --surface:#fff; --surface-2:#edf0f6;
+  --fg:#161a22; --muted:#5d6678; --line:#dce1ea;
+  --accent:#2f49b8; --drop:#0d7355; --rise:#b0432c;
+  --font-display:"Archivo","Noto Sans SC",system-ui,sans-serif;
+  --font-body:"Noto Sans SC","Archivo",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0d1016;--surface:#151a22;--surface-2:#1d2430;--fg:#e7ebf3;
+        --muted:#939db1;--line:#29313d;--accent:#8399ff;--drop:#4cbf94;
+        --rise:#e27f63;color-scheme:dark}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);
+  font-size:15px;line-height:1.6;padding:30px 16px 64px}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,5vw,34px);
+   letter-spacing:-.02em;margin:0;text-wrap:balance}
+.masthead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.tagline{color:var(--muted);font-size:13.5px;margin:4px 0 0;max-width:46ch}
+.pulse{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);
+  font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--surface)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--drop)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);
+  border-radius:12px;background:var(--surface);overflow:hidden}
+.stat{padding:14px 16px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat .k{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);font-family:var(--font-mono)}
+.stat .v{font-family:var(--font-mono);font-size:21px;font-weight:600;font-variant-numeric:tabular-nums}
+@media (max-width:520px){.strip{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){grid-column:1/-1;border-left:0;border-top:1px solid var(--line)}}
+.list{display:flex;flex-direction:column;gap:12px}
+.card{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.card-head{display:grid;grid-template-columns:1fr auto auto auto;gap:14px;align-items:center;
+  padding:14px 16px;width:100%;text-align:left;background:none;border:0;color:inherit}
+.card-head:hover{background:var(--surface-2)}
+.ident{min-width:0;display:flex;flex-direction:column;gap:3px}
+.pname{font-weight:500;line-height:1.35;overflow-wrap:anywhere}
+.pmeta{font-size:12px;color:var(--muted);font-family:var(--font-mono);
+  display:flex;gap:8px;flex-wrap:wrap}
+.spark{flex:none}
+.priceblock{text-align:right;display:flex;flex-direction:column;gap:2px;flex:none}
+.price{font-family:var(--font-mono);font-size:19px;font-weight:600;font-variant-numeric:tabular-nums}
+.delta{font-family:var(--font-mono);font-size:12px;font-weight:500;font-variant-numeric:tabular-nums}
+.delta.down{color:var(--drop)} .delta.up{color:var(--rise)} .delta.flat{color:var(--muted)}
+.hit{display:inline-block;margin-top:3px;font-size:11px;font-family:var(--font-mono);
+  letter-spacing:.05em;color:var(--drop);border:1px solid currentColor;border-radius:999px;padding:1px 7px}
+.bad{display:inline-block;margin-top:3px;font-size:11px;font-family:var(--font-mono);
+  letter-spacing:.05em;color:var(--rise);border:1px solid currentColor;border-radius:999px;padding:1px 7px}
+.chev{flex:none;color:var(--muted);font-size:11px;font-family:var(--font-mono);
+  display:flex;align-items:center;gap:5px}
+.chev svg{transition:transform .18s}
+.card-head[aria-expanded="true"] .chev svg{transform:rotate(180deg)}
+.card-head:hover .chev{color:var(--accent)}
+@media (max-width:760px){.chev .lbl{display:none}}
+@media (max-width:620px){.card-head{grid-template-columns:1fr auto auto}.spark{display:none}}
+.detail{border-top:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:14px}
+.chartbox{overflow-x:auto}
+.thin{font-size:12.5px;color:var(--muted)}
+a{color:var(--accent)}
+.panel{border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  padding:16px;display:flex;flex-direction:column;gap:10px}
+.panel h2{font-family:var(--font-display);font-size:16px;margin:0;font-weight:600}
+.note{font-size:12.5px;color:var(--muted);border-left:2px solid var(--line);
+  padding-left:11px;line-height:1.65}
+.empty{text-align:center;padding:38px 16px}
+.oops{border:1px solid var(--rise);border-left-width:3px;border-radius:8px;padding:11px 14px;
+  color:var(--rise);font-size:13px;font-family:var(--font-mono);overflow-wrap:anywhere}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <h1>价格轨迹</h1>
+      <p class="tagline">每天自动抓一次价，跌破目标价时标出来。</p>
+    </div>
+    <span class="pulse"><span class="dot"></span><span id="pulse">载入中</span></span>
+  </header>
+
+  <div id="oops" class="oops" hidden></div>
+
+  <section class="strip" aria-label="汇总">
+    <div class="stat"><span class="k">追踪中</span><span class="v" id="s-count">—</span></div>
+    <div class="stat"><span class="k">低于目标价</span><span class="v" id="s-hit">—</span></div>
+    <div class="stat"><span class="k">最大跌幅</span><span class="v" id="s-drop">—</span></div>
+  </section>
+
+  <div id="list" class="list"></div>
+
+  <section class="panel">
+    <h2>怎么改</h2>
+    <p class="note">增删商品、改目标价，都是编辑仓库根目录的 <code>products.json</code>。在 GitHub 网页上点开那个文件、点铅笔图标改完提交即可，几分钟后这个页面就会更新。<br>
+    抓价每天运行一次；想立刻跑一次，去仓库的 Actions 页面点「抓价」→「Run workflow」。</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  var products=[], store={series:{},status:{}}, openId=null;
+  var $=function(s){return document.querySelector(s)};
+  var listEl=$('#list');
+
+  function oops(e){
+    var b=$('#oops'); if(!b) return;
+    b.hidden=false; b.textContent='出错了：'+((e&&e.message)?e.message:String(e));
+  }
+  window.addEventListener('error',function(ev){ oops(ev.error||ev.message) });
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function money(n,cur){
+    if(n==null||isNaN(n)) return '—';
+    try{return new Intl.NumberFormat('en-US',{style:'currency',currency:cur||'USD'}).format(n)}
+    catch(e){return Number(n).toFixed(2)}
+  }
+  function hist(p){
+    var h=(store.series&&store.series[p.id])||[];
+    return h.filter(function(x){return x&&typeof x.price==='number'&&x.ts})
+            .slice().sort(function(a,b){return a.ts<b.ts?-1:1});
+  }
+  function last(p){var h=hist(p);return h.length?h[h.length-1]:null}
+  function prevPt(p){var h=hist(p);return h.length>1?h[h.length-2]:null}
+
+  function scale(h,w,ht,pad){
+    var ps=h.map(function(d){return d.price});
+    var lo=Math.min.apply(null,ps), hi=Math.max.apply(null,ps);
+    if(hi===lo){hi=lo+1;lo=lo-1}
+    var pv=(hi-lo)*0.12; lo-=pv; hi+=pv;
+    return {x:function(i){return h.length<2?w/2:pad.l+i*(w-pad.l-pad.r)/(h.length-1)},
+            y:function(v){return pad.t+(hi-v)*(ht-pad.t-pad.b)/(hi-lo)},lo:lo,hi:hi};
+  }
+  function sparkline(p){
+    var h=hist(p);
+    if(h.length<2) return '<svg class="spark" width="110" height="34"></svg>';
+    var w=110,ht=34,pad={l:2,r:4,t:5,b:5},s=scale(h,w,ht,pad);
+    var pts=h.map(function(d,i){return s.x(i).toFixed(1)+','+s.y(d.price).toFixed(1)}).join(' ');
+    var col=(h[h.length-1].price<=h[0].price)?'var(--drop)':'var(--rise)';
+    return '<svg class="spark" width="'+w+'" height="'+ht+'" viewBox="0 0 '+w+' '+ht+'">'+
+      '<polyline points="'+pts+'" fill="none" stroke="'+col+'" stroke-width="1.6" '+
+      'stroke-linejoin="round" stroke-linecap="round"/><circle cx="'+s.x(h.length-1).toFixed(1)+
+      '" cy="'+s.y(h[h.length-1].price).toFixed(1)+'" r="2.6" fill="'+col+'"/></svg>';
+  }
+  function bigchart(p){
+    var h=hist(p);
+    if(h.length<2) return '<p class="thin">还只有 '+h.length+' 个数据点，至少要 2 笔才画得出曲线。</p>';
+    var w=Math.max(560,Math.min(820,h.length*46)),ht=230,pad={l:54,r:16,t:16,b:34};
+    var s=scale(h,w,ht,pad),g='';
+    for(var i=0;i<=3;i++){
+      var v=s.lo+(s.hi-s.lo)*i/3,y=s.y(v);
+      g+='<line x1="'+pad.l+'" y1="'+y.toFixed(1)+'" x2="'+(w-pad.r)+'" y2="'+y.toFixed(1)+
+         '" stroke="var(--line)"/><text x="'+(pad.l-8)+'" y="'+(y+4).toFixed(1)+
+         '" text-anchor="end" fill="var(--muted)" font-size="11" '+
+         'font-family="IBM Plex Mono, monospace">'+v.toFixed(2)+'</text>';
+    }
+    if(typeof p.target==='number'&&p.target>s.lo&&p.target<s.hi){
+      var ty=s.y(p.target);
+      g+='<line x1="'+pad.l+'" y1="'+ty.toFixed(1)+'" x2="'+(w-pad.r)+'" y2="'+ty.toFixed(1)+
+         '" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="5 4"/>'+
+         '<text x="'+(w-pad.r)+'" y="'+(ty-6).toFixed(1)+'" text-anchor="end" '+
+         'fill="var(--accent)" font-size="11" font-family="IBM Plex Mono, monospace">目标 '+
+         p.target.toFixed(2)+'</text>';
+    }
+    var pts=h.map(function(d,i){return s.x(i).toFixed(1)+','+s.y(d.price).toFixed(1)});
+    var col=(h[h.length-1].price<=h[0].price)?'var(--drop)':'var(--rise)';
+    g+='<path d="M'+pad.l+','+(ht-pad.b)+' L'+pts.join(' L')+' L'+(w-pad.r)+','+(ht-pad.b)+
+       ' Z" fill="'+col+'" fill-opacity="0.10"/><polyline points="'+pts.join(' ')+
+       '" fill="none" stroke="'+col+'" stroke-width="2" stroke-linejoin="round"/>';
+    h.forEach(function(d,i){
+      g+='<circle cx="'+s.x(i).toFixed(1)+'" cy="'+s.y(d.price).toFixed(1)+'" r="'+
+         ((i===h.length-1)?4:2.5)+'" fill="'+col+'"><title>'+esc(d.ts)+'　'+
+         d.price.toFixed(2)+'</title></circle>';
+    });
+    var marks=[0,h.length-1];
+    if(h.length>4) marks.splice(1,0,Math.floor((h.length-1)/2));
+    marks.forEach(function(i){
+      var a=i===0?'start':(i===h.length-1?'end':'middle');
+      g+='<text x="'+s.x(i).toFixed(1)+'" y="'+(ht-pad.b+18)+'" text-anchor="'+a+
+         '" fill="var(--muted)" font-size="11" font-family="IBM Plex Mono, monospace">'+
+         esc(h[i].ts.slice(5))+'</text>';
+    });
+    return '<div class="chartbox"><svg width="'+w+'" height="'+ht+'" viewBox="0 0 '+w+' '+ht+
+      '" role="img" aria-label="价格历史曲线">'+g+'</svg></div>';
+  }
+  function deltaInfo(p){
+    var l=last(p),q=prevPt(p);
+    if(!l||!q) return {cls:'flat',txt:'首笔记录'};
+    var d=l.price-q.price;
+    if(Math.abs(d)<0.005) return {cls:'flat',txt:'持平'};
+    return {cls:d<0?'down':'up',
+      txt:(d<0?'▼ ':'▲ ')+Math.abs(d).toFixed(2)+'　'+Math.abs(d/q.price*100).toFixed(1)+'%'};
+  }
+
+  function render(){ try{ body(); bind(); }catch(e){ oops(e) } }
+
+  function body(){
+    $('#s-count').textContent=products.length||'0';
+    var hits=0,maxDrop=null;
+    products.forEach(function(p){
+      var l=last(p),h=hist(p);
+      if(l&&typeof p.target==='number'&&l.price<=p.target) hits++;
+      if(h.length>1){
+        var pct=(h[h.length-1].price-h[0].price)/h[0].price*100;
+        if(pct<0&&(maxDrop===null||pct<maxDrop)) maxDrop=pct;
+      }
+    });
+    $('#s-hit').textContent=products.length?hits:'—';
+    $('#s-drop').textContent=maxDrop===null?'—':maxDrop.toFixed(1)+'%';
+
+    if(!products.length){
+      listEl.innerHTML='<div class="card empty"><p class="thin">products.json 还是空的。'+
+        '在 GitHub 上编辑它，加入第一个商品。</p></div>';
+      return;
+    }
+
+    listEl.innerHTML=products.map(function(p){
+      var l=last(p),d=deltaInfo(p),open=(openId===p.id),id=esc(p.id);
+      var isHit=l&&typeof p.target==='number'&&l.price<=p.target;
+      var st=(store.status||{})[p.id];
+      var failed=st&&st.ok===false;
+
+      var head='<button class="card-head" data-id="'+id+'" aria-expanded="'+open+'">'+
+        '<span class="ident"><span class="pname">'+esc(p.name)+'</span>'+
+        '<span class="pmeta"><span>'+esc(p.retailer||'')+'</span>'+
+        '<span>'+(l?esc(l.ts):'无记录')+'</span>'+
+        (typeof p.target==='number'?'<span>目标 '+Number(p.target).toFixed(2)+'</span>':'')+
+        '</span></span>'+sparkline(p)+
+        '<span class="priceblock"><span class="price">'+money(l?l.price:null,p.currency)+'</span>'+
+        '<span class="delta '+d.cls+'">'+d.txt+'</span>'+
+        (isHit?'<span class="hit">低于目标</span>':'')+
+        (failed?'<span class="bad">抓取失败</span>':'')+'</span>'+
+        '<span class="chev"><span class="lbl">'+(open?'收起':'看曲线')+'</span>'+
+        '<svg width="11" height="11" viewBox="0 0 11 11"><path d="M1.5 3.5 L5.5 7.5 L9.5 3.5" '+
+        'fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" '+
+        'stroke-linejoin="round"/></svg></span></button>';
+
+      if(!open) return '<article class="card">'+head+'</article>';
+
+      var h=hist(p);
+      var rows=h.slice(-8).reverse().map(function(x){
+        return '<div style="display:flex;justify-content:space-between;gap:12px;'+
+          'font-family:var(--font-mono);font-size:12.5px"><span class="thin">'+esc(x.ts)+
+          '</span><span>'+x.price.toFixed(2)+'</span></div>';
+      }).join('');
+
+      return '<article class="card">'+head+'<div class="detail">'+
+        (failed?'<p class="oops">最近一次抓取失败：'+esc(st.error||'')+'</p>':'')+
+        bigchart(p)+
+        (rows?'<div style="display:flex;flex-direction:column;gap:3px">'+rows+'</div>':'')+
+        (p.url?'<div><a href="'+esc(p.url)+'" target="_blank" rel="noopener" class="thin">打开商品页 ↗</a></div>':'')+
+        '</div></article>';
+    }).join('');
+  }
+
+  function bind(){
+    var nodes=listEl.querySelectorAll('.card-head');
+    for(var i=0;i<nodes.length;i++){
+      (function(el){
+        el.onclick=function(ev){
+          ev.preventDefault();
+          var id=el.getAttribute('data-id');
+          openId=(openId===id)?null:id;
+          render();
+        };
+      })(nodes[i]);
+    }
+  }
+
+  function bust(u){ return u+'?t='+Date.now() }
+
+  Promise.all([
+    fetch(bust('products.json')).then(function(r){ if(!r.ok) throw new Error('products.json '+r.status); return r.json() }),
+    fetch(bust('data/prices.json')).then(function(r){ return r.ok?r.json():{series:{},status:{}} })
+  ]).then(function(res){
+    products=Array.isArray(res[0])?res[0]:[];
+    store=res[1]||{series:{},status:{}};
+    var u=store.updated?new Date(store.updated):null;
+    $('#pulse').textContent=u?('更新于 '+u.toLocaleDateString('zh-CN')+' '+
+      u.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})):'已载入';
+    render();
+  }).catch(function(e){
+    oops(e);
+    $('#pulse').textContent='载入失败';
+    render();
+  });
+})();
+</script>
+</body>
+</html>

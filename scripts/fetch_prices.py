@@ -32,7 +32,9 @@ HEADERS = {
                    "Chrome/131.0.0.0 Safari/537.36"),
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
+    # 不要手写 Accept-Encoding。requests 会按自己实际能解压的格式去声明；
+    # 手写上 br 而环境里没装 brotli，服务器就会发回解不开的压缩数据，
+    # 程序会把二进制当文字去找价格，表现为「页面里找不到价格」。
     "Connection": "keep-alive",
     "Upgrade-Insecure-Requests": "1",
 }
@@ -189,7 +191,17 @@ def fetch(url, tries=3):
         try:
             r = requests.get(url, headers=HEADERS, timeout=30)
             if r.status_code == 200:
-                return r.text, None
+                text = r.text
+                # 解压失败的话，拿到的是二进制噪声。早点识破，别让它伪装成
+                # 「页面里找不到价格」把人引向错误的方向。
+                sample = text[:2000]
+                if sample:
+                    junk = sum(1 for c in sample
+                               if c == "�" or (ord(c) < 32 and c not in "\t\r\n"))
+                    if junk / len(sample) > 0.15:
+                        return None, ("页面内容解码失败（压缩格式解不开，"
+                                      "Content-Encoding: %s）" % r.headers.get("Content-Encoding", "未知"))
+                return text, None
             last = "HTTP %d" % r.status_code
             # 403/429 基本是反爬，重试没用，早点放弃
             if r.status_code in (403, 404, 429):

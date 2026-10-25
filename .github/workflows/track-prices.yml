@@ -27,7 +27,8 @@ jobs:
           python-version: "3.12"
 
       - name: 安装依赖
-        run: pip install requests beautifulsoup4
+        # brotli 让 requests 能解开 br 压缩，现在很多零售网站默认用它
+        run: pip install requests beautifulsoup4 brotli
 
       - name: 抓取价格
         run: python scripts/fetch_prices.py

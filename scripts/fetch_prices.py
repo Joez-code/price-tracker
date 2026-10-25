@@ -125,6 +125,51 @@ def extract_price(html, selector=None):
     return None, "页面里找不到结构化价格；给这个商品加个 selector 字段试试"
 
 
+MONEY_RE = re.compile(r"(?:AU\$|NZ\$|US\$|\$|AUD|USD)\s?\d[\d,]*(?:\.\d{1,2})?")
+
+
+def diagnose(html, limit=12):
+    """抓不到价格时，把页面上长得像价格的元素记下来，方便事后写 selector。"""
+    soup = BeautifulSoup(html, "html.parser")
+    out = {
+        "ld_json_blocks": len(soup.find_all("script", attrs={"type": "application/ld+json"})),
+        "candidates": [],
+    }
+    seen = set()
+    for el in soup.find_all(True):
+        if el.find(True):                 # 只看最内层元素，跳过容器
+            continue
+        text = el.get_text(" ", strip=True)
+        if not text or len(text) > 40 or not MONEY_RE.search(text):
+            continue
+
+        desc = el.name
+        if el.get("id"):
+            desc += "#" + el["id"]
+        if el.get("class"):
+            desc += "." + ".".join(el["class"][:3])
+
+        key = (desc, text)
+        if key in seen:
+            continue
+        seen.add(key)
+
+        chain, node = [], el.parent
+        for _ in range(3):
+            if node is None or node.name in ("html", "[document]"):
+                break
+            seg = node.name
+            if node.get("class"):
+                seg += "." + ".".join(node["class"][:2])
+            chain.append(seg)
+            node = node.parent
+
+        out["candidates"].append({"text": text, "el": desc, "parents": " < ".join(chain)})
+        if len(out["candidates"]) >= limit:
+            break
+    return out
+
+
 def fetch(url, tries=3):
     last = None
     for i in range(tries):
@@ -163,6 +208,7 @@ def main():
     store = load_json(DATA, {})
     series = store.get("series") or {}
     status = {}
+    debug = {}
 
     today = datetime.now(SYDNEY).strftime("%Y-%m-%d")
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -187,7 +233,13 @@ def main():
         price, how = extract_price(html, p.get("selector"))
         if price is None:
             status[pid] = {"ok": False, "error": how, "at": now_iso}
+            try:
+                debug[pid] = diagnose(html)
+            except Exception as e:                      # 诊断失败也不能影响主流程
+                debug[pid] = {"diagnose_error": str(e)[:200]}
             print("✗ %-28s %s" % (pid, how))
+            print("   页面里像价格的元素：%s" % json.dumps(
+                debug[pid].get("candidates", [])[:6], ensure_ascii=False))
             continue
 
         points = [pt for pt in series.get(pid, []) if pt.get("ts") != today]
@@ -202,6 +254,10 @@ def main():
     store["series"] = series
     store["status"] = status
     store["updated"] = now_iso
+    if debug:
+        store["debug"] = debug
+    else:
+        store.pop("debug", None)      # 全部成功时清掉上一轮的诊断信息
 
     os.makedirs(os.path.dirname(DATA), exist_ok=True)
     with open(DATA, "w", encoding="utf-8") as f:

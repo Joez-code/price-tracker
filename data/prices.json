@@ -1,4 +1,18 @@
 {
+  "debug": {
+    "goodguys-dyson-v10": {
+      "candidates": [],
+      "ld_json_blocks": 0
+    },
+    "jbhifi-sony-xm5": {
+      "candidates": [],
+      "ld_json_blocks": 0
+    },
+    "petmeds-proplan-toy-5lb": {
+      "candidates": [],
+      "ld_json_blocks": 0
+    }
+  },
   "series": {
     "chewy-proplan-toy-5lb": [
       {
@@ -15,25 +29,20 @@
   },
   "status": {
     "goodguys-dyson-v10": {
-      "at": "2026-10-25T10:32:08+00:00",
+      "at": "2026-10-25T10:44:42+00:00",
       "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
       "ok": false
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-10-25T10:32:08+00:00",
+      "at": "2026-10-25T10:44:42+00:00",
       "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
       "ok": false
     },
-    "officeworks-mx-master-3s": {
-      "at": "2026-10-25T10:32:08+00:00",
-      "error": "HTTP 404",
-      "ok": false
-    },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-10-25T10:32:08+00:00",
-      "error": "选择器没匹配到元素或取不到数字: .add-price.primary-color .price-container span span span",
+      "at": "2026-10-25T10:44:42+00:00",
+      "error": "选择器没匹配到元素或取不到数字: #productDetail > div.container.pdp-container.three-column-layout > div > div.column-2.add-to-cart-column > div.column-2_1 > div.add-to-cart-html-container > div > div > div > div.row > div.col-12.d-none.d-sm-block.pricing-and-points > div > div.add-price.primary-color > div.price-container > span > span > span",
       "ok": false
     }
   },
-  "updated": "2026-10-25T10:32:08+00:00"
+  "updated": "2026-10-25T10:44:42+00:00"
 }

@@ -131,8 +131,21 @@ MONEY_RE = re.compile(r"(?:AU\$|NZ\$|US\$|\$|AUD|USD)\s?\d[\d,]*(?:\.\d{1,2})?")
 def diagnose(html, limit=12):
     """抓不到价格时，把页面上长得像价格的元素记下来，方便事后写 selector。"""
     soup = BeautifulSoup(html, "html.parser")
+
+    body_text = " ".join(soup.get_text(" ", strip=True).split())
+    low = html.lower()
+    flags = [w for w in (
+        "enable javascript", "captcha", "are you a robot", "access denied",
+        "blocked", "cloudflare", "incapsula", "akamai", "bot detection",
+        "unusual traffic", "please verify",
+    ) if w in low]
+
     out = {
         "ld_json_blocks": len(soup.find_all("script", attrs={"type": "application/ld+json"})),
+        "html_bytes": len(html),
+        "title": soup.title.get_text(strip=True)[:120] if soup.title else "",
+        "text_head": body_text[:400],
+        "flags": flags,
         "candidates": [],
     }
     seen = set()

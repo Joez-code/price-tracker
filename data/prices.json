@@ -14,16 +14,26 @@
     ]
   },
   "status": {
-    "chewy-proplan-toy-5lb": {
-      "at": "2026-10-25T10:07:25+00:00",
-      "error": "HTTP 429",
+    "goodguys-dyson-v10": {
+      "at": "2026-10-25T10:32:08+00:00",
+      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
+      "ok": false
+    },
+    "jbhifi-sony-xm5": {
+      "at": "2026-10-25T10:32:08+00:00",
+      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
+      "ok": false
+    },
+    "officeworks-mx-master-3s": {
+      "at": "2026-10-25T10:32:08+00:00",
+      "error": "HTTP 404",
       "ok": false
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-10-25T10:07:25+00:00",
-      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
+      "at": "2026-10-25T10:32:08+00:00",
+      "error": "选择器没匹配到元素或取不到数字: .add-price.primary-color .price-container span span span",
       "ok": false
     }
   },
-  "updated": "2026-10-25T10:07:25+00:00"
+  "updated": "2026-10-25T10:32:08+00:00"
 }

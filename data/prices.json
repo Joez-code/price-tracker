@@ -1,12 +1,29 @@
 {
   "series": {
     "chewy-proplan-toy-5lb": [
-      { "ts": "2026-10-25", "price": 22.69 }
+      {
+        "price": 22.69,
+        "ts": "2026-10-25"
+      }
     ],
     "petmeds-proplan-toy-5lb": [
-      { "ts": "2026-10-25", "price": 20.68 }
+      {
+        "price": 20.68,
+        "ts": "2026-10-25"
+      }
     ]
   },
-  "status": {},
-  "updated": "2026-10-25T07:30:00+00:00"
+  "status": {
+    "chewy-proplan-toy-5lb": {
+      "at": "2026-10-25T10:07:25+00:00",
+      "error": "HTTP 429",
+      "ok": false
+    },
+    "petmeds-proplan-toy-5lb": {
+      "at": "2026-10-25T10:07:25+00:00",
+      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
+      "ok": false
+    }
+  },
+  "updated": "2026-10-25T10:07:25+00:00"
 }

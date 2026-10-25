@@ -2,33 +2,27 @@
   "debug": {
     "goodguys-dyson-v10": {
       "candidates": [],
-      "flags": [],
-      "html_bytes": 198049,
-      "ld_json_blocks": 0,
-      "text_head": "ü \u0000ä2ÿ®.þÌ\"/;SLa\u0019ÈBòH ë %Ù\u0016ÈjG1NÍÿ¯ o \u0000\u0001«øûÿ¥c-]Ãþß·kPNiN\u001bËXÇ\u0002Z¢cRyÿ\u0013²Zkí£&N=\u0017 > X C\u0007ý+âmS³\bhqû§µì¼j³Å«Ùm£pCÿtÜÿ*öÜ.f­Q>3z63&è¼ÓÛ-\b ëÆé\u0012ÝÐ!CäÀõoÜ]÷rÅ`¸Þ)I%ùBÁC¢\u001aÕÂ.æöþêfÞí )ÔÙÑ\\.f½æ\u0012\b9Ä,f¢# ¯çxù¯çQ¦\\ÓB/êi°ÿG6^-$7^àùyì{q4\u000f½(K³·ÞÇCË\u001b\u0000vÜ 9Jhàh~\u0006¢¹k. }ò°`¯©Ìì²á;\u0003o å¹Ga\u0000Oøþ< ì\u0018øi '¹Û«æEåþ< ò4 -¾$é0_¡ÿyÖtB _}çNp½qqKÒ\"Å\u000f&N\bny\u0012R¤øEbß®n\u0019(ôçáq Íã0^ ,ÍâyêÇ\u0000Á³\u000f\u00102 \"",
-      "title": ""
-    },
-    "jbhifi-sony-xm5": {
-      "candidates": [],
-      "flags": [],
-      "html_bytes": 101540,
-      "ld_json_blocks": 0,
-      "text_head": "[ �~�ڰq\u0000\u0000���� \b\u001b\u0007\u0000\u0000��pJ\u0004T\u000f\u0000\u0000�{\u000f���^\u0012�MU\u0003� ~��?��ǿ��?%0�c\u0002��\u000fF��b�� N�����������i��I��T�)c��\u0014���Ȳ\u0012��aH�J�cѭ� cF�_����\u0013ы�!o\u0007��$Y �)�5` W�qc������GRB*S���q�#z����[�g;�e������;�Vi�[��g���La�ic̕t\u0005j�DIz�i\u0013�\u0013�s��Z��� �͑@\u0004R��'\u0015X�W&ډ\u0013o ϋ�rA�%!�\u0000.\u0000Zֈ���f������&�J�� ��;y5��+�8}�>F ak��E\u0010���S?g_���s�5Y��Đ �,=Mr:� ]=�v�ʽ�Z��{ �so]c\u0018�:\\���V\u001aQ�{���@����F���7S��yo\u000ew ;��� �p��$/�\"[�d;���\u000f\u0012�\b�$\u0018���O�����g���|���",
-      "title": ""
-    },
-    "petmeds-proplan-toy-5lb": {
-      "candidates": [],
-      "flags": [],
-      "html_bytes": 58804,
-      "ld_json_blocks": 0,
-      "text_head": "[�\u00077 ��\u0003\u0000@��p�\u0011=i��\u0010@ � �������\u001b\u0000´Xmv����x}~��?}�5����Ig&�D?>�k�!`'��/�Nr� OӨ�DC�[�n\u0001�M�l���Ο��?����؟f�#�F��a�%�ɲ��ۃ�r�N��W�ġ�\u0018\u0004\u0018\u0000Ԑ���f����o�ϗ�����b��*V�s�\u0005�-�\u0012���\u0012 �����S��dT�o<5Ά�駒Z��8���52?��\u0004����*�5��\u0010�AP\u0000\u0018T�\u0010\u0014@�Ͼ�>W� �R�H*��\u001adS�\u0005��\u000fR�7*\u0010 �\u0014��\u000e��c\\>�\u0013��;��\u0007��\u0000���12㨱��8Ab�䳳�p�t��?�V]��+m~7� \"\"bI�1T*�~���@\u0001\u0007\"\u001aM��p�� ѝb�S�}9�Ͽ��V�\u00181����l�q�[�CO �o�X\bDWOc���Zn6�8�6�*�2�,N���݄)@Ȭ؀l2��_�_\u0015v@@�8�e",
-      "title": ""
+      "flags": [
+        "captcha",
+        "blocked",
+        "cloudflare"
+      ],
+      "html_bytes": 1447090,
+      "ld_json_blocks": 3,
+      "text_head": "Stick Vacuums | Cordless Stick Vacuum Cleaners Sign up to Earn or Access 90 Day StoreCash > here Sign up to Earn or Access 90 Day StoreCash > here Menu Stores Sign In My Cart Preferred Store: loading... Sign In My Cart Close Search loading Loading search... Loading... Press Esc to close the search results, the Up and Down arrow keys to navigate the results, and Enter to select a result. Seen it Ch",
+      "title": "Stick Vacuums | Cordless Stick Vacuum Cleaners"
     }
   },
   "series": {
     "chewy-proplan-toy-5lb": [
       {
         "price": 22.69,
+        "ts": "2026-10-25"
+      }
+    ],
+    "jbhifi-sony-xm5": [
+      {
+        "price": 399.0,
         "ts": "2026-10-25"
       }
     ],
@@ -41,20 +35,20 @@
   },
   "status": {
     "goodguys-dyson-v10": {
-      "at": "2026-10-25T10:49:17+00:00",
+      "at": "2026-10-25T10:54:34+00:00",
       "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
       "ok": false
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-10-25T10:49:17+00:00",
-      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
-      "ok": false
+      "at": "2026-10-25T10:54:34+00:00",
+      "method": "json-ld",
+      "ok": true
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-10-25T10:49:17+00:00",
-      "error": "选择器没匹配到元素或取不到数字: #productDetail > div.container.pdp-container.three-column-layout > div > div.column-2.add-to-cart-column > div.column-2_1 > div.add-to-cart-html-container > div > div > div > div.row > div.col-12.d-none.d-sm-block.pricing-and-points > div > div.add-price.primary-color > div.price-container > span > span > span",
-      "ok": false
+      "at": "2026-10-25T10:54:34+00:00",
+      "method": "selector",
+      "ok": true
     }
   },
-  "updated": "2026-10-25T10:49:17+00:00"
+  "updated": "2026-10-25T10:54:34+00:00"
 }

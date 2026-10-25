@@ -1,18 +1,4 @@
 {
-  "debug": {
-    "goodguys-dyson-v10": {
-      "candidates": [],
-      "flags": [
-        "captcha",
-        "blocked",
-        "cloudflare"
-      ],
-      "html_bytes": 1447090,
-      "ld_json_blocks": 3,
-      "text_head": "Stick Vacuums | Cordless Stick Vacuum Cleaners Sign up to Earn or Access 90 Day StoreCash > here Sign up to Earn or Access 90 Day StoreCash > here Menu Stores Sign In My Cart Preferred Store: loading... Sign In My Cart Close Search loading Loading search... Loading... Press Esc to close the search results, the Up and Down arrow keys to navigate the results, and Enter to select a result. Seen it Ch",
-      "title": "Stick Vacuums | Cordless Stick Vacuum Cleaners"
-    }
-  },
   "series": {
     "chewy-proplan-toy-5lb": [
       {
@@ -20,35 +6,49 @@
         "ts": "2026-10-25"
       }
     ],
+    "goodguys-dyson-v15": [
+      {
+        "price": 748.0,
+        "ts": "2026-10-26"
+      }
+    ],
     "jbhifi-sony-xm5": [
       {
         "price": 399.0,
         "ts": "2026-10-25"
+      },
+      {
+        "price": 399.0,
+        "ts": "2026-10-26"
       }
     ],
     "petmeds-proplan-toy-5lb": [
       {
         "price": 20.68,
         "ts": "2026-10-25"
+      },
+      {
+        "price": 20.68,
+        "ts": "2026-10-26"
       }
     ]
   },
   "status": {
-    "goodguys-dyson-v10": {
-      "at": "2026-10-25T10:54:34+00:00",
-      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
-      "ok": false
+    "goodguys-dyson-v15": {
+      "at": "2026-10-25T22:00:01+00:00",
+      "method": "json-ld",
+      "ok": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-10-25T10:54:34+00:00",
+      "at": "2026-10-25T22:00:01+00:00",
       "method": "json-ld",
       "ok": true
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-10-25T10:54:34+00:00",
+      "at": "2026-10-25T22:00:01+00:00",
       "method": "selector",
       "ok": true
     }
   },
-  "updated": "2026-10-25T10:54:34+00:00"
+  "updated": "2026-10-25T22:00:01+00:00"
 }

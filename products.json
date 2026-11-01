@@ -43,5 +43,14 @@
     "currency": "AUD",
     "target": null,
     "selector": null
+  },
+  {
+    "id": "costco-cuckoo-cr0685fw",
+    "name": "Cuckoo Micom 电饭锅 6 杯 CR-0685FW",
+    "retailer": "Costco AU",
+    "url": "https://www.costco.com.au/Appliances/Kitchen-Appliances/Rice-Cookers/Cuckoo-Micom-Rice-Cooker-6-Cups-CR-0685FW/p/226750",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
   }
 ]

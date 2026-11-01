@@ -14,7 +14,7 @@
     "retailer": "JB Hi-Fi",
     "url": "https://jbhifi.com.au/products/sony-wh-1000xm5-premium-noise-cancelling-wireless-over-ear-headphones-black",
     "currency": "AUD",
-    "target": null,
+    "target": 399.00,
     "selector": null
   },
   {
@@ -31,6 +31,15 @@
     "name": "Panasonic 32L 1100W 微波炉 不锈钢 NN-ST665B",
     "retailer": "The Good Guys",
     "url": "https://www.thegoodguys.com.au/panasonic-32l-1100w-microwave-metal-nn-st665bqpq",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
+  },
+  {
+    "id": "kitchenwarehouse-wolstead-saucepan-20cm",
+    "name": "Wolstead Pro Steel 三层不锈钢汤锅带盖 20cm 3.5L",
+    "retailer": "Kitchen Warehouse",
+    "url": "https://www.kitchenwarehouse.com.au/product/wolstead-pro-steel-triply-stainless-steel-saucepan-with-lid-20cm-3-5l",
     "currency": "AUD",
     "target": null,
     "selector": null

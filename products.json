@@ -25,5 +25,14 @@
     "currency": "AUD",
     "target": null,
     "selector": null
+  },
+  {
+    "id": "goodguys-panasonic-nn-st665b",
+    "name": "Panasonic 32L 1100W 微波炉 不锈钢 NN-ST665B",
+    "retailer": "The Good Guys",
+    "url": "https://www.thegoodguys.com.au/panasonic-32l-1100w-microwave-metal-nn-st665bqpq",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
   }
 ]

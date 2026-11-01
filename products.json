@@ -52,5 +52,14 @@
     "currency": "AUD",
     "target": null,
     "selector": null
+  },
+  {
+    "id": "cuckoo-official-cr0685fw",
+    "name": "Cuckoo Micom 电饭锅 6 杯 CR-0685FW（官网）",
+    "retailer": "Cuckoo 澳洲官网",
+    "url": "https://www.cuckooaustralia.com.au/collections/rice-cooker/products/cuckoo-micom-rice-cooker-6-cups-cr-0685fw",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
   }
 ]

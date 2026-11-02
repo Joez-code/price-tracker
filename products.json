@@ -45,6 +45,24 @@
     "selector": null
   },
   {
+    "id": "everten-wolstead-superior-saucepan-20cm",
+    "name": "Wolstead Superior Steel 汤锅带盖 20cm（Pro Steel 的同类替代）",
+    "retailer": "Everten",
+    "url": "https://everten.com.au/products/wolstead-superior-steel-saucepan-with-lid-20cm",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
+  },
+  {
+    "id": "mydeal-wolstead-superior-saucepan-20cm",
+    "name": "Wolstead Superior 汤锅带盖+辅助手柄 20cm 3.8L（同类替代）",
+    "retailer": "MyDeal",
+    "url": "https://www.mydeal.com.au/wolstead-superior-saucepan-with-lid-and-helper-handle-20cm-3-8l-793715",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
+  },
+  {
     "id": "costco-cuckoo-cr0685fw",
     "name": "Cuckoo Micom 电饭锅 6 杯 CR-0685FW",
     "retailer": "Costco AU",

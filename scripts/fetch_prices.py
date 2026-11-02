@@ -37,6 +37,16 @@ HEADERS = {
     # 程序会把二进制当文字去找价格，表现为「页面里找不到价格」。
     "Connection": "keep-alive",
     "Upgrade-Insecure-Requests": "1",
+    # 真实 Chrome 访问网页时会带上这几个头。少了它们，有些站点的
+    # 初级拦截规则会判定为机器人并返回 403。
+    "sec-ch-ua": '"Chromium";v="131", "Not_A Brand";v="24", "Google Chrome";v="131"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"macOS"',
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-User": "?1",
+    "Cache-Control": "max-age=0",
 }
 
 PRICE_RE = re.compile(r"[-+]?[\d,]*\.?\d+")
@@ -203,8 +213,11 @@ def fetch(url, tries=3):
                                       "Content-Encoding: %s）" % r.headers.get("Content-Encoding", "未知"))
                 return text, None
             last = "HTTP %d" % r.status_code
-            # 403/429 基本是反爬，重试没用，早点放弃
-            if r.status_code in (403, 404, 429):
+            if r.status_code in (403, 429):
+                last += "（网站把请求当成机器人挡掉了，不是链接的问题）"
+                break          # 反爬拦截，重试只会更可疑
+            if r.status_code == 404:
+                last += "（页面不存在，商品可能已下架或链接变了）"
                 break
         except requests.RequestException as e:
             last = type(e).__name__ + ": " + str(e)[:140]

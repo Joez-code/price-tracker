@@ -137,50 +137,35 @@
   },
   "status": {
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-02T10:11:43+00:00",
+      "at": "2026-11-02T10:16:47+00:00",
       "method": "json-ld",
       "ok": true
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-02T10:11:43+00:00",
+      "at": "2026-11-02T10:16:47+00:00",
       "method": "json-ld",
       "ok": true
     },
-    "everten-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-02T10:11:43+00:00",
-      "error": "HTTP 404（页面不存在，商品可能已下架或链接变了）",
-      "ok": false
-    },
     "goodguys-dyson-v15": {
-      "at": "2026-11-02T10:11:43+00:00",
+      "at": "2026-11-02T10:16:47+00:00",
       "method": "json-ld",
       "ok": true
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-02T10:11:43+00:00",
+      "at": "2026-11-02T10:16:47+00:00",
       "method": "json-ld",
       "ok": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-02T10:11:43+00:00",
+      "at": "2026-11-02T10:16:47+00:00",
       "method": "json-ld",
       "ok": true
     },
-    "kitchenwarehouse-wolstead-saucepan-20cm": {
-      "at": "2026-11-02T10:11:43+00:00",
-      "error": "HTTP 403（网站把请求当成机器人挡掉了，不是链接的问题）",
-      "ok": false
-    },
-    "mydeal-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-02T10:11:43+00:00",
-      "error": "HTTP 403（网站把请求当成机器人挡掉了，不是链接的问题）",
-      "ok": false
-    },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-02T10:11:43+00:00",
+      "at": "2026-11-02T10:16:47+00:00",
       "method": "selector",
       "ok": true
     }
   },
-  "updated": "2026-11-02T10:11:43+00:00"
+  "updated": "2026-11-02T10:16:47+00:00"
 }

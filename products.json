@@ -61,5 +61,23 @@
     "currency": "AUD",
     "target": null,
     "selector": "div[class*=\"UnitPrice\"] p"
+  },
+  {
+    "id": "dyson-hp2-denox-nickelgold",
+    "name": "Dyson Purifier Hot+Cool HP2 De-NOx 镍金色 546292-01",
+    "retailer": "Dyson 澳洲官网",
+    "url": "https://www.dyson.com.au/dyson-purifier-hot-cool-hp2-de-nox-546292-01-nickel-gold",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
+  },
+  {
+    "id": "dyson-hushjet-compact-blackteal",
+    "name": "Dyson HushJet Purifier Compact 黑/青 492715-01",
+    "retailer": "Dyson 澳洲官网",
+    "url": "https://www.dyson.com.au/hushjet-purifier-compact-492715-01-black-teal",
+    "currency": "AUD",
+    "target": null,
+    "selector": null
   }
 ]

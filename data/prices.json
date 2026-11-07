@@ -1,32 +1,4 @@
 {
-  "debug": {
-    "harveynorman-nest-wifi-pro-1pk": {
-      "candidates": [],
-      "flags": [
-        "incapsula"
-      ],
-      "html_bytes": 5996,
-      "ld_json_blocks": 0,
-      "text_head": "Pardon Our Interruption Pardon Our Interruption As you were browsing something about your browser made us think you were a bot. There are a few reasons this might happen: You've disabled JavaScript in your web browser. You're a power user moving through this website with super-human speed. You've disabled cookies in your web browser. A third-party browser plugin, such as Ghostery or NoScript, is p",
-      "title": "Pardon Our Interruption"
-    },
-    "officeworks-nest-wifi-pro-1pk": {
-      "candidates": [
-        {
-          "el": "p.sc-lmJFLr.hMOezG.standard",
-          "parents": "div.style__UnitPrice-sc-gc984o-2.bAvVuW < div.style__Wrapper-sc-gc984o-0.dIyqog < div.styles__ProductDetailWrapper-sc-i7hfje-12.iTEBgQ",
-          "text": "$177.00"
-        }
-      ],
-      "flags": [
-        "cloudflare"
-      ],
-      "html_bytes": 1074573,
-      "ld_json_blocks": 0,
-      "text_head": "Google Nest Wifi Pro Home Mesh Wi-Fi 6E System White | Officeworks Shopping method Login 0 Cart 💻 Back to School 🎒 expandable: 💻 Back to School 🎒 Technology expandable: Technology Office Supplies expandable: Office Supplies Furniture expandable: Furniture Paper expandable: Paper Art & Craft expandable: Art & Craft Workplace Supplies expandable: Workplace Supplies Education expandable: Education Pr",
-      "title": "Google Nest Wifi Pro Home Mesh Wi-Fi 6E System White | Officeworks"
-    }
-  },
   "series": {
     "chewy-proplan-toy-5lb": [
       {
@@ -224,6 +196,12 @@
         "ts": "2026-11-07"
       }
     ],
+    "officeworks-nest-wifi-pro-1pk": [
+      {
+        "price": 177.0,
+        "ts": "2026-11-07"
+      }
+    ],
     "petmeds-proplan-toy-5lb": [
       {
         "price": 20.68,
@@ -285,45 +263,40 @@
   },
   "status": {
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-07T10:12:40+00:00",
+      "at": "2026-11-07T10:14:23+00:00",
       "method": "json-ld",
       "ok": true
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-07T10:12:40+00:00",
+      "at": "2026-11-07T10:14:23+00:00",
       "method": "json-ld",
       "ok": true
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-07T10:12:40+00:00",
+      "at": "2026-11-07T10:14:23+00:00",
       "method": "json-ld",
       "ok": true
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-07T10:12:40+00:00",
+      "at": "2026-11-07T10:14:23+00:00",
       "method": "json-ld",
       "ok": true
     },
-    "harveynorman-nest-wifi-pro-1pk": {
-      "at": "2026-11-07T10:12:40+00:00",
-      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
-      "ok": false
-    },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-07T10:12:40+00:00",
+      "at": "2026-11-07T10:14:23+00:00",
       "method": "json-ld",
       "ok": true
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-07T10:12:40+00:00",
-      "error": "页面里找不到结构化价格；给这个商品加个 selector 字段试试",
-      "ok": false
+      "at": "2026-11-07T10:14:23+00:00",
+      "method": "selector",
+      "ok": true
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-07T10:12:40+00:00",
+      "at": "2026-11-07T10:14:23+00:00",
       "method": "selector",
       "ok": true
     }
   },
-  "updated": "2026-11-07T10:12:40+00:00"
+  "updated": "2026-11-07T10:14:23+00:00"
 }

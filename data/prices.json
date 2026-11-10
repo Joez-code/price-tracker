@@ -96,7 +96,7 @@
         "ts": "2026-11-09"
       },
       {
-        "price": 899.0,
+        "price": 849.0,
         "ts": "2026-11-10"
       }
     ],
@@ -114,7 +114,7 @@
         "ts": "2026-11-09"
       },
       {
-        "price": 399.0,
+        "price": 386.0,
         "ts": "2026-11-10"
       }
     ],
@@ -383,50 +383,50 @@
   },
   "status": {
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "json-ld",
       "ok": true
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "json-ld",
       "ok": true
     },
     "dyson-hp2-denox-nickelgold": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "json-ld",
       "ok": true
     },
     "dyson-hushjet-compact-blackteal": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "json-ld",
       "ok": true
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "json-ld",
       "ok": true
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "json-ld",
       "ok": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "json-ld",
       "ok": true
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "selector",
       "ok": true
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-09T22:23:22+00:00",
+      "at": "2026-11-10T10:34:25+00:00",
       "method": "selector",
       "ok": true
     }
   },
-  "updated": "2026-11-09T22:23:22+00:00"
+  "updated": "2026-11-10T10:34:25+00:00"
 }

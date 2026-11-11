@@ -441,83 +441,83 @@
   },
   "status": {
     "chewy-proplan-toy-5lb": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hp2-denox-nickelgold": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hushjet-compact-blackteal": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "harveynorman-nest-wifi-pro-1pk": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "kitchenwarehouse-wolstead-saucepan-20cm": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "mydeal-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "itemprop",
       "ok": true,
       "proxy": true
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-11T10:33:40+00:00",
+      "at": "2026-11-11T10:39:43+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     }
   },
-  "updated": "2026-11-11T10:33:40+00:00"
+  "updated": "2026-11-11T10:39:43+00:00"
 }

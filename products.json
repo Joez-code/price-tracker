@@ -98,17 +98,9 @@
     "currency": "AUD",
     "target": null,
     "selector": null,
-    "proxy": true
-  },
-  {
-    "id": "everten-wolstead-superior-saucepan-20cm",
-    "name": "Wolstead Superior Steel 汤锅带盖 20cm（同类替代）",
-    "retailer": "Everten",
-    "url": "https://everten.com.au/products/wolstead-superior-steel-saucepan-with-lid-20cm",
-    "currency": "AUD",
-    "target": null,
-    "selector": null,
-    "proxy": true
+    "proxy": true,
+    "price_min": 30,
+    "price_max": 400
   },
   {
     "id": "mydeal-wolstead-superior-saucepan-20cm",
@@ -118,7 +110,9 @@
     "currency": "AUD",
     "target": null,
     "selector": null,
-    "proxy": true
+    "proxy": true,
+    "price_min": 30,
+    "price_max": 400
   },
   {
     "id": "chewy-proplan-toy-5lb",

@@ -336,12 +336,6 @@
         "ts": "2026-11-11"
       }
     ],
-    "mydeal-wolstead-superior-saucepan-20cm": [
-      {
-        "price": 839.0,
-        "ts": "2026-11-11"
-      }
-    ],
     "officeworks-nest-wifi-pro-1pk": [
       {
         "price": 177.0,
@@ -469,12 +463,6 @@
       "method": "json-ld",
       "ok": true,
       "proxy": false
-    },
-    "everten-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-11T10:29:28+00:00",
-      "error": "HTTP 404（经代理访问时目标网站返回的状态码）",
-      "ok": false,
-      "proxy": true
     },
     "goodguys-dyson-v15": {
       "at": "2026-11-11T10:29:28+00:00",

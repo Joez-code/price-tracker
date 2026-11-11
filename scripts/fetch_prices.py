@@ -322,6 +322,18 @@ def main():
             continue
 
         price, how = extract_price(html, p.get("selector"))
+
+        # 合理性检查：抓到的数字落在设定区间外，多半是认错了元素
+        # （抓到了套装价、分期总额、或者页面上别的商品）。
+        # 宁可当作失败并记下诊断，也不要往曲线里塞一个假价格。
+        if price is not None:
+            lo, hi = p.get("price_min"), p.get("price_max")
+            if (lo is not None and price < lo) or (hi is not None and price > hi):
+                how = ("抓到 %.2f，超出设定的合理区间 %s–%s，判定为认错元素"
+                       % (price, lo if lo is not None else "不限",
+                          hi if hi is not None else "不限"))
+                price = None
+
         if price is None:
             status[pid] = {"ok": False, "error": how, "at": now_iso, "proxy": via_proxy}
             try:

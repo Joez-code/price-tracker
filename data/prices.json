@@ -246,6 +246,12 @@
         "ts": "2026-11-11"
       }
     ],
+    "harveynorman-nest-wifi-pro-1pk": [
+      {
+        "price": 348.0,
+        "ts": "2026-11-11"
+      }
+    ],
     "jbhifi-sony-xm5": [
       {
         "price": 399.0,
@@ -419,59 +425,65 @@
   },
   "status": {
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hp2-denox-nickelgold": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hushjet-compact-blackteal": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
+    "harveynorman-nest-wifi-pro-1pk": {
+      "at": "2026-11-11T10:27:11+00:00",
+      "method": "json-ld",
+      "ok": true,
+      "proxy": true
+    },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-11T10:02:55+00:00",
+      "at": "2026-11-11T10:27:11+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     }
   },
-  "updated": "2026-11-11T10:02:55+00:00"
+  "updated": "2026-11-11T10:27:11+00:00"
 }

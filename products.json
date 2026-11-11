@@ -89,5 +89,45 @@
     "target": null,
     "selector": null,
     "proxy": true
+  },
+  {
+    "id": "kitchenwarehouse-wolstead-saucepan-20cm",
+    "name": "Wolstead Pro Steel 三层不锈钢汤锅带盖 20cm 3.5L",
+    "retailer": "Kitchen Warehouse",
+    "url": "https://www.kitchenwarehouse.com.au/product/wolstead-pro-steel-triply-stainless-steel-saucepan-with-lid-20cm-3-5l",
+    "currency": "AUD",
+    "target": null,
+    "selector": null,
+    "proxy": true
+  },
+  {
+    "id": "everten-wolstead-superior-saucepan-20cm",
+    "name": "Wolstead Superior Steel 汤锅带盖 20cm（同类替代）",
+    "retailer": "Everten",
+    "url": "https://everten.com.au/products/wolstead-superior-steel-saucepan-with-lid-20cm",
+    "currency": "AUD",
+    "target": null,
+    "selector": null,
+    "proxy": true
+  },
+  {
+    "id": "mydeal-wolstead-superior-saucepan-20cm",
+    "name": "Wolstead Superior 汤锅带盖+辅助手柄 20cm 3.8L（同类替代）",
+    "retailer": "MyDeal",
+    "url": "https://www.mydeal.com.au/wolstead-superior-saucepan-with-lid-and-helper-handle-20cm-3-8l-793715",
+    "currency": "AUD",
+    "target": null,
+    "selector": null,
+    "proxy": true
+  },
+  {
+    "id": "chewy-proplan-toy-5lb",
+    "name": "Purina Pro Plan 小型犬 鸡肉米饭 5lb",
+    "retailer": "Chewy",
+    "url": "https://www.chewy.com/purina-pro-plan-adult-toy-breed/dp/52400",
+    "currency": "USD",
+    "target": 18.0,
+    "selector": null,
+    "proxy": true
   }
 ]

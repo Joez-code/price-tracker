@@ -33,6 +33,10 @@ jobs:
         run: pip install requests beautifulsoup4 brotli
 
       - name: 抓取价格
+        env:
+          # 抓取代理的 token，存在仓库 Settings → Secrets 里，不在代码中。
+          # 没配置也能正常跑，只是标了 "proxy": true 的商品会失败。
+          SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
         run: python scripts/fetch_prices.py
 
       - name: 有变化就提交

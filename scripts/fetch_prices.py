@@ -15,6 +15,7 @@ import sys
 import time
 import random
 from datetime import datetime, timezone, timedelta
+from urllib.parse import urlencode
 
 import requests
 from bs4 import BeautifulSoup
@@ -22,6 +23,37 @@ from bs4 import BeautifulSoup
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRODUCTS = os.path.join(ROOT, "products.json")
 DATA = os.path.join(ROOT, "data", "prices.json")
+
+# 抓取代理。只有在 products.json 里标了 "proxy": true 的商品才会走它，
+# 免得把每月 1000 次的免费额度浪费在本来就能直连的商品上。
+# token 从 GitHub Secrets 注入，绝不写进代码或仓库。
+SCRAPEDO_TOKEN = os.environ.get("SCRAPEDO_TOKEN", "").strip()
+SCRAPEDO_ENDPOINT = "https://api.scrape.do/"
+
+
+def redact(text):
+    """这个仓库是公开的：token 绝不能出现在日志、报错或 prices.json 里。"""
+    s = str(text)
+    if SCRAPEDO_TOKEN:
+        s = s.replace(SCRAPEDO_TOKEN, "<TOKEN>")
+    # 以防 token 以其他形式混进 URL
+    s = re.sub(r"(token=)[^&\s]+", r"\1<TOKEN>", s)
+    return s
+
+
+def request_url(p):
+    """返回 (真正要请求的地址, 是否走代理, 出错原因)。"""
+    target = p.get("url")
+    if not p.get("proxy"):
+        return target, False, None
+    if not SCRAPEDO_TOKEN:
+        return None, True, "这个商品需要走代理，但仓库里没配置 SCRAPEDO_TOKEN"
+    params = {"token": SCRAPEDO_TOKEN, "url": target}
+    if p.get("proxy_render"):        # 需要执行 JS 的页面才开，消耗额度更多
+        params["render"] = "true"
+    if p.get("proxy_geo"):           # 例如 "au"，让代理从澳洲 IP 访问
+        params["geoCode"] = p["proxy_geo"]
+    return SCRAPEDO_ENDPOINT + "?" + urlencode(params), True, None
 
 # 用悉尼时间给数据点打日期，和看板显示保持一致
 SYDNEY = timezone(timedelta(hours=11))
@@ -195,11 +227,15 @@ def diagnose(html, limit=12):
     return out
 
 
-def fetch(url, tries=3):
+def fetch(url, tries=3, via_proxy=False):
     last = None
+    # 走代理时不要带浏览器请求头：伪装交给代理做，我们自己带反而可能干扰它。
+    # 代理那头也更慢，超时放宽。
+    headers = {"Accept": "*/*"} if via_proxy else HEADERS
+    timeout = 90 if via_proxy else 30
     for i in range(tries):
         try:
-            r = requests.get(url, headers=HEADERS, timeout=30)
+            r = requests.get(url, headers=headers, timeout=timeout)
             if r.status_code == 200:
                 text = r.text
                 # 解压失败的话，拿到的是二进制噪声。早点识破，别让它伪装成
@@ -213,17 +249,27 @@ def fetch(url, tries=3):
                                       "Content-Encoding: %s）" % r.headers.get("Content-Encoding", "未知"))
                 return text, None
             last = "HTTP %d" % r.status_code
-            if r.status_code in (403, 429):
-                last += "（网站把请求当成机器人挡掉了，不是链接的问题）"
-                break          # 反爬拦截，重试只会更可疑
-            if r.status_code == 404:
-                last += "（页面不存在，商品可能已下架或链接变了）"
-                break
+            if via_proxy:
+                # 这些码来自代理服务本身，不是目标网站
+                if r.status_code == 401:
+                    last += "（代理拒绝：SCRAPEDO_TOKEN 不对或已失效）"
+                    break
+                if r.status_code in (402, 429):
+                    last += "（代理额度用完了，或请求太频繁）"
+                    break
+                last += "（经代理访问时目标网站返回的状态码）"
+            else:
+                if r.status_code in (403, 429):
+                    last += "（网站把请求当成机器人挡掉了，给这个商品加 \"proxy\": true 试试）"
+                    break          # 反爬拦截，直连重试只会更可疑
+                if r.status_code == 404:
+                    last += "（页面不存在，商品可能已下架或链接变了）"
+                    break
         except requests.RequestException as e:
-            last = type(e).__name__ + ": " + str(e)[:140]
+            last = type(e).__name__ + ": " + redact(str(e))[:140]
         if i < tries - 1:
             time.sleep(2 + random.random() * 3)
-    return None, last or "未知错误"
+    return None, redact(last or "未知错误")
 
 
 def load_json(path, fallback):
@@ -252,6 +298,7 @@ def main():
     now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
     ok_count = 0
+    proxy_calls = 0
     for idx, p in enumerate(products):
         pid = p.get("id")
         url = p.get("url")
@@ -262,15 +309,21 @@ def main():
         if idx:
             time.sleep(3 + random.random() * 4)   # 别把人家站点打疼
 
-        html, err = fetch(url)
+        req_url, via_proxy, cfg_err = request_url(p)
+        if cfg_err:
+            status[pid] = {"ok": False, "error": cfg_err, "at": now_iso, "proxy": True}
+            print("✗ %-28s %s" % (pid, cfg_err))
+            continue
+
+        html, err = fetch(req_url, via_proxy=via_proxy)
         if html is None:
-            status[pid] = {"ok": False, "error": err, "at": now_iso}
-            print("✗ %-28s %s" % (pid, err))
+            status[pid] = {"ok": False, "error": err, "at": now_iso, "proxy": via_proxy}
+            print("✗ %-28s %s%s" % (pid, "[代理] " if via_proxy else "", err))
             continue
 
         price, how = extract_price(html, p.get("selector"))
         if price is None:
-            status[pid] = {"ok": False, "error": how, "at": now_iso}
+            status[pid] = {"ok": False, "error": how, "at": now_iso, "proxy": via_proxy}
             try:
                 debug[pid] = diagnose(html)
             except Exception as e:                      # 诊断失败也不能影响主流程
@@ -285,9 +338,10 @@ def main():
         points.sort(key=lambda x: x["ts"])
         series[pid] = points[-400:]          # 只留最近 400 天
 
-        status[pid] = {"ok": True, "method": how, "at": now_iso}
+        status[pid] = {"ok": True, "method": how, "at": now_iso, "proxy": via_proxy}
         ok_count += 1
-        print("✓ %-28s %8.2f  (%s)" % (pid, price, how))
+        proxy_calls += 1 if via_proxy else 0
+        print("✓ %-28s %8.2f  (%s%s)" % (pid, price, how, "，经代理" if via_proxy else ""))
 
     store["series"] = series
     store["status"] = status
@@ -298,11 +352,15 @@ def main():
         store.pop("debug", None)      # 全部成功时清掉上一轮的诊断信息
 
     os.makedirs(os.path.dirname(DATA), exist_ok=True)
+    blob = json.dumps(store, ensure_ascii=False, indent=2, sort_keys=True)
+    # 最后一道防线：这个仓库是公开的，token 绝不能写进去。
+    if SCRAPEDO_TOKEN and SCRAPEDO_TOKEN in blob:
+        print("中止：输出里含有代理 token，拒绝写入文件。", file=sys.stderr)
+        return 1
     with open(DATA, "w", encoding="utf-8") as f:
-        json.dump(store, f, ensure_ascii=False, indent=2, sort_keys=True)
-        f.write("\n")
+        f.write(blob + "\n")
 
-    print("\n成功 %d / %d 个商品。" % (ok_count, len(products)))
+    print("\n成功 %d / %d 个商品。本次用掉代理额度 %d 次。" % (ok_count, len(products), proxy_calls))
     # 即使全失败也返回 0：一次抓取失败不该让 Actions 报红，
     # 失败详情已经写进 status，看板上会标出来。
     return 0

@@ -79,5 +79,15 @@
     "currency": "AUD",
     "target": null,
     "selector": null
+  },
+  {
+    "id": "harveynorman-nest-wifi-pro-1pk",
+    "name": "Google Nest Wifi Pro 6E 路由器 1个装（同款对照）",
+    "retailer": "Harvey Norman",
+    "url": "https://www.harveynorman.com.au/google-nest-wifi-pro-wi-fi-6e-1-pack.html",
+    "currency": "AUD",
+    "target": null,
+    "selector": null,
+    "proxy": true
   }
 ]

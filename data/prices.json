@@ -1,78 +1,4 @@
 {
-  "debug": {
-    "mydeal-wolstead-superior-saucepan-20cm": {
-      "candidates": [
-        {
-          "el": "strong",
-          "parents": "p < div.RichText.RichText_RichText__HQ77M < div.banner-content",
-          "text": "$10 OFF when you spend $69 on Clothing*"
-        },
-        {
-          "el": "p.range-tile-title",
-          "parents": "div.range-tile-text.text-dark < div.ContentRangeTile.variant-from < a",
-          "text": "Trees under $100"
-        },
-        {
-          "el": "p.range-tile-title",
-          "parents": "div.range-tile-text.text-dark < div.ContentRangeTile.variant-dollar < a",
-          "text": "Decor under $30"
-        },
-        {
-          "el": "p.range-tile-title",
-          "parents": "div.range-tile-text.text-dark < div.ContentRangeTile.variant-dollar < a",
-          "text": "Stockings under $20"
-        },
-        {
-          "el": "p.range-tile-title",
-          "parents": "div.range-tile-text.text-dark < div.ContentRangeTile.variant-from < a",
-          "text": "Lights under $20"
-        },
-        {
-          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
-          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$949.95"
-        },
-        {
-          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
-          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$43.95"
-        },
-        {
-          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
-          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$1599"
-        },
-        {
-          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
-          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$94.85"
-        },
-        {
-          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
-          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$119.85"
-        },
-        {
-          "el": "span.ProductPriceSaveFrom_textContent__wU0xL",
-          "parents": "sup.ProductPriceSaveFrom_ProductPriceSaveFrom__paIgP < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "SAVE $10.00"
-        },
-        {
-          "el": "span.ProductPriceSaveFrom_textContent__wU0xL",
-          "parents": "sup.ProductPriceSaveFrom_ProductPriceSaveFrom__paIgP < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "SAVE $5.10"
-        }
-      ],
-      "flags": [
-        "captcha",
-        "akamai"
-      ],
-      "html_bytes": 2340036,
-      "ld_json_blocks": 2,
-      "text_head": "Marketplace | BIG W Skip to navigation Skip to main content 🎄 Christmas is closer than you think. Sleigh your list in one easy place. Shop Christmas . ⚡ $10 OFF when you spend $69 on Clothing* Online only. Use code CLICK10 *T&Cs apply. Enter your for delivery options Cart Shop By Department Catalogue Deals New Early BLACK FRIDAY Offers Christmas Shop Toys Marketplace Catalogue Deals New Early BLAC",
-      "title": "Marketplace | BIG W"
-    }
-  },
   "series": {
     "chewy-proplan-toy-5lb": [
       {
@@ -248,7 +174,7 @@
         "ts": "2026-11-12"
       },
       {
-        "price": 386.0,
+        "price": 369.0,
         "ts": "2026-11-13"
       }
     ],
@@ -498,6 +424,10 @@
       {
         "price": 79.0,
         "ts": "2026-11-12"
+      },
+      {
+        "price": 179.0,
+        "ts": "2026-11-13"
       }
     ],
     "officeworks-nest-wifi-pro-1pk": [
@@ -615,83 +545,83 @@
   },
   "status": {
     "chewy-proplan-toy-5lb": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hp2-denox-nickelgold": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hushjet-compact-blackteal": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "harveynorman-nest-wifi-pro-1pk": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "kitchenwarehouse-wolstead-saucepan-20cm": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "mydeal-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-12T22:24:31+00:00",
-      "error": "抓到 949.00，超出设定的合理区间 30–400，判定为认错元素",
-      "ok": false,
+      "at": "2026-11-13T10:38:09+00:00",
+      "method": "itemprop",
+      "ok": true,
       "proxy": true
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-12T22:24:31+00:00",
+      "at": "2026-11-13T10:38:09+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     }
   },
-  "updated": "2026-11-12T22:24:31+00:00"
+  "updated": "2026-11-13T10:38:09+00:00"
 }

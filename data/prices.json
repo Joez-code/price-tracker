@@ -20,6 +20,10 @@
       {
         "price": 20.68,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 20.68,
+        "ts": "2026-11-15"
       }
     ],
     "costco-cuckoo-cr0685fw": [
@@ -74,6 +78,10 @@
       {
         "price": 124.98,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 124.98,
+        "ts": "2026-11-15"
       }
     ],
     "cuckoo-official-cr0685fw": [
@@ -128,6 +136,10 @@
       {
         "price": 249.99,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 249.99,
+        "ts": "2026-11-15"
       }
     ],
     "dyson-hp2-denox-nickelgold": [
@@ -162,6 +174,10 @@
       {
         "price": 849.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 849.0,
+        "ts": "2026-11-15"
       }
     ],
     "dyson-hushjet-compact-blackteal": [
@@ -196,6 +212,10 @@
       {
         "price": 369.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 369.0,
+        "ts": "2026-11-15"
       }
     ],
     "goodguys-dyson-v15": [
@@ -278,6 +298,10 @@
       {
         "price": 739.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 739.0,
+        "ts": "2026-11-15"
       }
     ],
     "goodguys-panasonic-nn-st665b": [
@@ -332,6 +356,10 @@
       {
         "price": 349.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 349.0,
+        "ts": "2026-11-15"
       }
     ],
     "harveynorman-nest-wifi-pro-1pk": [
@@ -350,6 +378,10 @@
       {
         "price": 348.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 348.0,
+        "ts": "2026-11-15"
       }
     ],
     "jbhifi-sony-xm5": [
@@ -436,6 +468,10 @@
       {
         "price": 396.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 396.0,
+        "ts": "2026-11-15"
       }
     ],
     "kitchenwarehouse-wolstead-saucepan-20cm": [
@@ -454,6 +490,10 @@
       {
         "price": 119.95,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 119.95,
+        "ts": "2026-11-15"
       }
     ],
     "mydeal-wolstead-superior-saucepan-20cm": [
@@ -472,6 +512,10 @@
       {
         "price": 179.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 179.0,
+        "ts": "2026-11-15"
       }
     ],
     "officeworks-nest-wifi-pro-1pk": [
@@ -506,6 +550,10 @@
       {
         "price": 177.0,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 177.0,
+        "ts": "2026-11-15"
       }
     ],
     "petmeds-proplan-toy-5lb": [
@@ -592,88 +640,92 @@
       {
         "price": 20.68,
         "ts": "2026-11-14"
+      },
+      {
+        "price": 20.68,
+        "ts": "2026-11-15"
       }
     ]
   },
   "status": {
     "chewy-proplan-toy-5lb": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hp2-denox-nickelgold": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hushjet-compact-blackteal": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "harveynorman-nest-wifi-pro-1pk": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "kitchenwarehouse-wolstead-saucepan-20cm": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "mydeal-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "itemprop",
       "ok": true,
       "proxy": true
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-14T10:22:05+00:00",
+      "at": "2026-11-14T22:14:23+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     }
   },
-  "updated": "2026-11-14T10:22:05+00:00"
+  "updated": "2026-11-14T22:14:23+00:00"
 }

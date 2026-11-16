@@ -40,34 +40,34 @@
         {
           "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
           "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$98.85"
+          "text": "$1599"
+        },
+        {
+          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
+          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
+          "text": "$77.85"
         },
         {
           "el": "span.ProductPriceSaveFrom_textContent__wU0xL",
           "parents": "sup.ProductPriceSaveFrom_ProductPriceSaveFrom__paIgP < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "SAVE $11.10"
+          "text": "SAVE $8.10"
         },
         {
           "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
           "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$373.43"
+          "text": "$169.95"
         },
         {
-          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
-          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$497.90"
-        },
-        {
-          "el": "span.VisuallyHidden_VisuallyHidden__aVR1z",
-          "parents": "span.PriceRange.ProductPrice < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
-          "text": "$159"
+          "el": "span.ProductPriceSaveFrom_textContent__wU0xL",
+          "parents": "sup.ProductPriceSaveFrom_ProductPriceSaveFrom__paIgP < div.PriceSection.PriceSection_PriceSection__lau8k < a.ProductTile_tileLink__s2T_3",
+          "text": "SAVE $10.00"
         }
       ],
       "flags": [
         "captcha",
         "akamai"
       ],
-      "html_bytes": 2339992,
+      "html_bytes": 2340294,
       "ld_json_blocks": 2,
       "text_head": "Marketplace | BIG W Skip to navigation Skip to main content 🎄 Christmas is closer than you think. Sleigh your list in one easy place. Shop Christmas . ⚡ $10 OFF when you spend $69 on Clothing* Online only. Use code CLICK10 *T&Cs apply. Enter your for delivery options Cart Shop By Department Catalogue Deals New Early BLACK FRIDAY Offers Christmas Shop Toys Marketplace Catalogue Deals New Early BLAC",
       "title": "Marketplace | BIG W"
@@ -308,7 +308,7 @@
         "ts": "2026-11-15"
       },
       {
-        "price": 369.0,
+        "price": 379.0,
         "ts": "2026-11-16"
       }
     ],
@@ -771,83 +771,83 @@
   },
   "status": {
     "chewy-proplan-toy-5lb": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hp2-denox-nickelgold": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hushjet-compact-blackteal": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "harveynorman-nest-wifi-pro-1pk": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "kitchenwarehouse-wolstead-saucepan-20cm": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": true
     },
     "mydeal-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "error": "抓到 949.00，超出设定的合理区间 30–400，判定为认错元素",
       "ok": false,
       "proxy": true
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-15T22:15:16+00:00",
+      "at": "2026-11-16T11:01:08+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     }
   },
-  "updated": "2026-11-15T22:15:16+00:00"
+  "updated": "2026-11-16T11:01:08+00:00"
 }

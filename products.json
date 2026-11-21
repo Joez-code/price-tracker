@@ -113,15 +113,5 @@
     "proxy": true,
     "price_min": 30,
     "price_max": 400
-  },
-  {
-    "id": "chewy-proplan-toy-5lb",
-    "name": "Purina Pro Plan 小型犬 鸡肉米饭 5lb",
-    "retailer": "Chewy",
-    "url": "https://www.chewy.com/purina-pro-plan-adult-toy-breed/dp/52400",
-    "currency": "USD",
-    "target": 18.0,
-    "selector": null,
-    "proxy": true
   }
 ]

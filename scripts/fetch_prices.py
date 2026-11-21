@@ -227,7 +227,13 @@ def diagnose(html, limit=12):
     return out
 
 
-def fetch(url, tries=3, via_proxy=False):
+def fetch(url, tries=3, via_proxy=False, cost_out=None):
+    """cost_out: 传一个 list 进来，会把这次实际消耗的代理额度放进去。
+
+    代理按域名收费，难抓的站点一次要几十个额度（chewy.com 一次 50 个）。
+    响应头 Scrape.do-Request-Cost 是权威数字，必须记下来，
+    否则额度被悄悄烧光，要等到全部失败才会发现。
+    """
     last = None
     # 走代理时不要带浏览器请求头：伪装交给代理做，我们自己带反而可能干扰它。
     # 代理那头也更慢，超时放宽。
@@ -236,6 +242,13 @@ def fetch(url, tries=3, via_proxy=False):
     for i in range(tries):
         try:
             r = requests.get(url, headers=headers, timeout=timeout)
+            if via_proxy and cost_out is not None:
+                try:
+                    c = r.headers.get("Scrape.do-Request-Cost")
+                    if c is not None:
+                        cost_out.append(int(float(c)))
+                except (TypeError, ValueError):
+                    pass
             if r.status_code == 200:
                 text = r.text
                 # 解压失败的话，拿到的是二进制噪声。早点识破，别让它伪装成
@@ -299,6 +312,8 @@ def main():
 
     ok_count = 0
     proxy_calls = 0
+    proxy_credits = 0
+    costs = {}
     for idx, p in enumerate(products):
         pid = p.get("id")
         url = p.get("url")
@@ -315,7 +330,13 @@ def main():
             print("✗ %-28s %s" % (pid, cfg_err))
             continue
 
-        html, err = fetch(req_url, via_proxy=via_proxy)
+        cost_box = []
+        html, err = fetch(req_url, via_proxy=via_proxy, cost_out=cost_box)
+        cost = cost_box[-1] if cost_box else None
+        if cost:
+            proxy_credits += cost
+            costs[pid] = cost
+
         if html is None:
             status[pid] = {"ok": False, "error": err, "at": now_iso, "proxy": via_proxy}
             print("✗ %-28s %s%s" % (pid, "[代理] " if via_proxy else "", err))
@@ -351,6 +372,7 @@ def main():
         series[pid] = points[-400:]          # 只留最近 400 天
 
         status[pid] = {"ok": True, "method": how, "at": now_iso, "proxy": via_proxy}
+        if cost: status[pid]["credits"] = cost
         ok_count += 1
         proxy_calls += 1 if via_proxy else 0
         print("✓ %-28s %8.2f  (%s%s)" % (pid, price, how, "，经代理" if via_proxy else ""))
@@ -358,6 +380,7 @@ def main():
     store["series"] = series
     store["status"] = status
     store["updated"] = now_iso
+    store["proxy_credits_this_run"] = proxy_credits
     if debug:
         store["debug"] = debug
     else:
@@ -372,7 +395,12 @@ def main():
     with open(DATA, "w", encoding="utf-8") as f:
         f.write(blob + "\n")
 
-    print("\n成功 %d / %d 个商品。本次用掉代理额度 %d 次。" % (ok_count, len(products), proxy_calls))
+    print("\n成功 %d / %d 个商品。代理请求 %d 次，实际消耗额度 %d 个。"
+          % (ok_count, len(products), proxy_calls, proxy_credits))
+    if costs:
+        print("   各商品额度消耗：" + "，".join("%s=%d" % (k, v) for k, v in sorted(costs.items())))
+        if proxy_credits:
+            print("   按每天两轮计算，1000 额度可用约 %.0f 天。" % (1000.0 / (proxy_credits * 2)))
     # 即使全失败也返回 0：一次抓取失败不该让 Actions 报红，
     # 失败详情已经写进 status，看板上会标出来。
     return 0

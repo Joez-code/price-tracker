@@ -30,6 +30,23 @@ DATA = os.path.join(ROOT, "data", "prices.json")
 SCRAPEDO_TOKEN = os.environ.get("SCRAPEDO_TOKEN", "").strip()
 SCRAPEDO_ENDPOINT = "https://api.scrape.do/"
 
+# 每个计费周期允许消耗的代理额度上限。免费套餐是 1000，这里留两成余量，
+# 到顶就停止走代理的请求，免得在无人盯着的时候被悄悄烧光。
+# 额度按域名收费，难抓的站点一次几十个，所以必须按实际消耗记账而不是按次数。
+PROXY_BUDGET = int(os.environ.get("PROXY_BUDGET", "800"))
+# 免费额度的续期日（每月几号）。注册当天是 11 号，所以周期从每月 11 号起算。
+BILLING_DAY = int(os.environ.get("BILLING_DAY", "11"))
+
+
+def billing_cycle(now):
+    """返回当前计费周期的标识，例如 '2026-11'（11 月 11 日到 12 月 10 日）。"""
+    y, m = now.year, now.month
+    if now.day < BILLING_DAY:          # 还没到续期日，算上一个周期
+        m -= 1
+        if m == 0:
+            m, y = 12, y - 1
+    return "%04d-%02d" % (y, m)
+
 
 def redact(text):
     """这个仓库是公开的：token 绝不能出现在日志、报错或 prices.json 里。"""
@@ -314,6 +331,13 @@ def main():
     proxy_calls = 0
     proxy_credits = 0
     costs = {}
+
+    # 按计费周期累计额度消耗；换周期自动清零
+    cycle = billing_cycle(datetime.now(SYDNEY))
+    budget = store.get("proxy_budget") or {}
+    if budget.get("cycle") != cycle:
+        budget = {"cycle": cycle, "used": 0}
+    budget_stop = False
     for idx, p in enumerate(products):
         pid = p.get("id")
         url = p.get("url")
@@ -323,6 +347,15 @@ def main():
 
         if idx:
             time.sleep(3 + random.random() * 4)   # 别把人家站点打疼
+
+        if p.get("proxy") and budget["used"] >= PROXY_BUDGET:
+            budget_stop = True
+            msg = ("已达本周期代理额度上限 %d（已用 %d），跳过以保住余量；"
+                   "周期 %s，续期日每月 %d 号"
+                   % (PROXY_BUDGET, budget["used"], cycle, BILLING_DAY))
+            status[pid] = {"ok": False, "error": msg, "at": now_iso, "proxy": True}
+            print("⏸ %-28s %s" % (pid, msg))
+            continue
 
         req_url, via_proxy, cfg_err = request_url(p)
         if cfg_err:
@@ -336,6 +369,7 @@ def main():
         if cost:
             proxy_credits += cost
             costs[pid] = cost
+            budget["used"] += cost
 
         if html is None:
             status[pid] = {"ok": False, "error": err, "at": now_iso, "proxy": via_proxy}
@@ -381,6 +415,7 @@ def main():
     store["status"] = status
     store["updated"] = now_iso
     store["proxy_credits_this_run"] = proxy_credits
+    store["proxy_budget"] = budget
     if debug:
         store["debug"] = debug
     else:
@@ -400,7 +435,11 @@ def main():
     if costs:
         print("   各商品额度消耗：" + "，".join("%s=%d" % (k, v) for k, v in sorted(costs.items())))
         if proxy_credits:
-            print("   按每天两轮计算，1000 额度可用约 %.0f 天。" % (1000.0 / (proxy_credits * 2)))
+            print("   按每天一轮计算，1000 额度可用约 %.0f 天。" % (1000.0 / proxy_credits))
+    if budget["used"]:
+        print("   本周期（%s）累计 %d / %d 额度。" % (cycle, budget["used"], PROXY_BUDGET))
+    if budget_stop:
+        print("   ⚠ 已触及上限，走代理的商品本次被跳过。")
     # 即使全失败也返回 0：一次抓取失败不该让 Actions 报红，
     # 失败详情已经写进 status，看板上会标出来。
     return 0

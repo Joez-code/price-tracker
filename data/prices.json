@@ -135,6 +135,10 @@
       {
         "price": 159.98,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 159.98,
+        "ts": "2026-11-25"
       }
     ],
     "cuckoo-official-cr0685fw": [
@@ -229,6 +233,10 @@
       {
         "price": 249.99,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 249.99,
+        "ts": "2026-11-25"
       }
     ],
     "dyson-hp2-denox-nickelgold": [
@@ -303,6 +311,10 @@
       {
         "price": 1199.0,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 1199.0,
+        "ts": "2026-11-25"
       }
     ],
     "dyson-hushjet-compact-blackteal": [
@@ -377,6 +389,10 @@
       {
         "price": 379.0,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 379.0,
+        "ts": "2026-11-25"
       }
     ],
     "goodguys-dyson-v15": [
@@ -499,6 +515,10 @@
       {
         "price": 739.0,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 739.0,
+        "ts": "2026-11-25"
       }
     ],
     "goodguys-panasonic-nn-st665b": [
@@ -593,6 +613,10 @@
       {
         "price": 327.0,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 327.0,
+        "ts": "2026-11-25"
       }
     ],
     "harveynorman-nest-wifi-pro-1pk": [
@@ -753,6 +777,10 @@
       {
         "price": 396.0,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 396.0,
+        "ts": "2026-11-25"
       }
     ],
     "kitchenwarehouse-wolstead-saucepan-20cm": [
@@ -887,6 +915,10 @@
       {
         "price": 147.0,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 147.0,
+        "ts": "2026-11-25"
       }
     ],
     "petmeds-proplan-toy-5lb": [
@@ -1013,82 +1045,86 @@
       {
         "price": 20.68,
         "ts": "2026-11-24"
+      },
+      {
+        "price": 20.68,
+        "ts": "2026-11-25"
       }
     ]
   },
   "status": {
     "costco-cuckoo-cr0685fw": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "cuckoo-official-cr0685fw": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hp2-denox-nickelgold": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "dyson-hushjet-compact-blackteal": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-dyson-v15": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "goodguys-panasonic-nn-st665b": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "harveynorman-nest-wifi-pro-1pk": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "error": "HTTP 401（代理拒绝：SCRAPEDO_TOKEN 不对或已失效）",
       "ok": false,
       "proxy": true
     },
     "jbhifi-sony-xm5": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "json-ld",
       "ok": true,
       "proxy": false
     },
     "kitchenwarehouse-wolstead-saucepan-20cm": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "error": "HTTP 401（代理拒绝：SCRAPEDO_TOKEN 不对或已失效）",
       "ok": false,
       "proxy": true
     },
     "mydeal-wolstead-superior-saucepan-20cm": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "error": "HTTP 401（代理拒绝：SCRAPEDO_TOKEN 不对或已失效）",
       "ok": false,
       "proxy": true
     },
     "officeworks-nest-wifi-pro-1pk": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     },
     "petmeds-proplan-toy-5lb": {
-      "at": "2026-11-23T22:28:49+00:00",
+      "at": "2026-11-24T22:34:39+00:00",
       "method": "selector",
       "ok": true,
       "proxy": false
     }
   },
-  "updated": "2026-11-23T22:28:49+00:00"
+  "updated": "2026-11-24T22:34:39+00:00"
 }
